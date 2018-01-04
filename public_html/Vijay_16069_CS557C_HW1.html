@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- 
+Student Info: Name=VijayPanwar, ID=16069
+Subject: CS557C_HW1_Summer_2016
+Author: vijay 
+Filename: hw1.html 
+Date and Time: May 25, 2016 6:47:14 PM 
+Project Name: webfrontend 
+--> 
+<html>
+    <head>
+        <title>HW1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-color: #E3CD8E;">
+        <section>
+            <div>
+                <div class="sidebar">
+                    <table width="1000px" style="margin-left: 100px; text-align: center;">
+
+                        <tr style=" width: 80%;">
+                            <td>
+                                <img src="img/TA-logo3_400x400.jpg" width="100px">
+                                <!--<h2 style="color: red;">TA System</h2>-->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <table width="1000px" style="margin-left: 100px;">
+
+                    <tr>
+                        <td style="float:left;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h2 style="color: black; font-size: 20px;">Useful Links</h2>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="licss">
+                                            <li><a href="http://npu.edu/" target="_blank">NPU Website</a></li>
+                                            <li><a href="http://google.com/" target="_blank">Google Search</a></li>
+                                            <li><a href="http://bing.com/" target="_blank">Bing Search</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border: 1px solid #acacac">
+                            <h2>This is test</h2>
+                            <form action="" method="post" name="newStudent">
+                                <table border="1px" width="50%">
+                                    <tr>
+                                        <td width="80%">First Name</td>
+                                        <td><input type="text" name="fname" id="fname" class="inputstyle"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="80%">Last Name</td>
+                                        <td><input type="text" name="lname" id="lname" class="inputstyle"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="80%">Student ID</td>
+                                        <td><input type="text" name="sid" id="sid" class="inputstyle"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="80%">Area of Specializations</td>
+                                        <td>
+                                            <select class="inputstyle" name="areaof" id="areaof">
+                                                <option value="">Select Specialization</option>
+                                                <option value="Programming">Programming</option>
+                                                <option value="Database">Database</option>
+                                                <option value="Testing">Testing</option>
+                                                <option value="Networking">Networking</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="80%">Selected</td>
+                                        <td>
+
+                                            <input type="checkbox" name="selected" id="selected" >
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <hr>
+                            <table border="1px" style="border-collapse:collapse;">
+                                <tr>
+                                    <td><input type="button" class="buttoncss" value="New" id="newbtn"></td>
+                                    <td><input type="button" class="buttoncss" value="Edit" id="editbtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Delete" id="deletebtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Save" id="savebtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Cancel" id="cancelbtn" disabled="disabled"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="button" class="buttoncss" value="First" id="fristbtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Previous" id="previousbtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Next" id="nextbtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Last" id="lastbtn" disabled="disabled"></td>
+                                    <td><input type="button" class="buttoncss" value="Select" id="selectbtn" disabled="disabled"></td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <table>
+                                <h2>Logs</h2>
+                                <textarea cols="40" rows="10" id="studentdata" name="studentdata"></textarea>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+        </section>
+
+        <section class="footer">
+
+            <table width="1000px" style="margin-left: 100px; text-align: center;">
+
+                <tr style="background-color: #fff; width: 80%;">
+                    <td style="background-color:red">
+                        <p style="color: #fff;">&copy; 2015 Northwestern Polytechnic University, All Rights Reserved</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </div>
+</body>
+<script>
+    document.getElementById('newbtn').addEventListener('click', function () {
+        document.getElementById('savebtn').disabled = false;
+        document.getElementById('cancelbtn').disabled = false;
+        document.getElementById('newbtn').disabled = true;
+        document.getElementById('editbtn').disabled = true;
+        document.getElementById('deletebtn').disabled = true;
+        document.getElementById('fristbtn').disabled = true;
+        document.getElementById('previousbtn').disabled = true;
+        document.getElementById('nextbtn').disabled = true;
+        document.getElementById('lastbtn').disabled = true;
+        document.getElementById('selectbtn').disabled = true;
+
+        document.getElementById('fname').value = "";
+        document.getElementById('lname').value = "";
+        document.getElementById('sid').value = "";
+        document.getElementById('areaof').value = "";
+
+
+
+
+    }, false);
+
+    document.getElementById('savebtn').addEventListener('click', function () {
+        document.getElementById('newbtn').disabled = false;
+        document.getElementById('savebtn').disabled = true;
+        document.getElementById('cancelbtn').disabled = true;
+        document.getElementById('editbtn').disabled = false;
+        document.getElementById('deletebtn').disabled = false;
+        document.getElementById('fristbtn').disabled = false;
+        document.getElementById('previousbtn').disabled = false;
+        document.getElementById('nextbtn').disabled = false;
+        document.getElementById('lastbtn').disabled = false;
+        document.getElementById('selectbtn').disabled = false;
+
+        var studentInfo = document.getElementById('studentdata').value + "\n";
+        studentInfo += document.newStudent.fname.value + ", ";
+
+        studentInfo += document.newStudent.lname.value + ", ";
+        studentInfo += document.newStudent.sid.value + ", ";
+        studentInfo += document.newStudent.areaof.value;
+
+
+        document.getElementById('studentdata').value = studentInfo;
+        
+        
+    }, false);
+
+    document.getElementById('cancelbtn').addEventListener('click', function () {
+        document.getElementById('newbtn').disabled = false;
+        document.getElementById('savebtn').disabled = true;
+        document.getElementById('cancelbtn').disabled = true;
+        document.getElementById('deletebtn').disabled = false;
+        document.getElementById('editbtn').disabled = false;
+        document.getElementById('fristbtn').disabled = false;
+        document.getElementById('previousbtn').disabled = false;
+        document.getElementById('nextbtn').disabled = false;
+        document.getElementById('lastbtn').disabled = false;
+        document.getElementById('selectbtn').disabled = false;
+
+    }, false);
+
+    document.getElementById('editbtn').addEventListener('click', function () {
+        document.getElementById('newbtn').disabled = true;
+        document.getElementById('savebtn').disabled = false;
+        document.getElementById('cancelbtn').disabled = false;
+        document.getElementById('deletebtn').disabled = true;
+        document.getElementById('fristbtn').disabled = false;
+        document.getElementById('previousbtn').disabled = false;
+        document.getElementById('nextbtn').disabled = false;
+        document.getElementById('lastbtn').disabled = false;
+        document.getElementById('selectbtn').disabled = false;
+
+    }, false);
+
+    document.getElementById("selectbtn").addEventListener('click', function () {
+        var textarea = document.getElementById("studentdata").value;
+        //alert(textarea);
+
+        document.getElementById('fname').value = textarea[0];
+        document.getElementById('lname').value = textarea[1];
+        document.getElementById('sid').value = textarea[2];
+        document.getElementById('areaof').value = textarea[3];
+
+
+    }, false);
+
+    document.getElementById("fristbtn").addEventListener('click', function () {
+        var textarea = document.getElementById("studentdata").value;
+
+        if (textarea >= all.count) {
+            document.getElementById("studentid").value;
+        }
+    });
+
+    document.getElementById("fristbtn").addEventListener('click', function () {
+        var textarea = document.getElementById("studentdata").value;
+
+        for (i = textarea.length; i < textarea.length; i--) {
+            document.getElementById('fname').value = textarea[i];
+            document.getElementById('lname').value = textarea[i];
+            document.getElementById('sid').value = textarea[i];
+            document.getElementById('areaof').value = textarea[i];
+        }
+    });
+
+    document.getElementById("deletebtn").addEventListener('click', function () {
+        var textarea = document.getElementById('studentdata').value;
+        var indextoRemove = document.getElementById('studentdata').selected;
+        var textarea = textarea.slice(1, indextoRemove);
+        document.getElementById("studentdata").innerHTML = textarea;
+    });
+
+
+
+    document.getElementById("nextbtn").nxtbtnfun({
+        navigation: true,
+        autoPlay: 3000,
+        pagination: false,
+        beforeInit: function (elem) {
+            random(elem);
+        }
+
+    });
+
+    document.getElementById("lastbtn").lastbtn({
+        navigation: false,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true,
+        autoPlay: 3000,
+        pagination: false,
+    });
+
+</script>
+<style>
+
+    .inputstyle{
+        border: 1px solid #acacac;
+        margin: 10px 5px;
+        padding: 2px;
+    }
+    .buttoncss {
+        border: 1px solid #acacac;
+        border-radius: 15px;
+        margin: 5px;
+        padding: 5px;
+        width: 90%;
+    }
+    .licss li a{
+        color: blue;
+    }
+</style>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- 
+Student Info: Name=VijayPanwar, ID=16069
+Subject: CS557C_QUIZ1_Summer_2016
+Author: vijay 
+Filename: Vijay_16069_CS557C_Quiz1.html 
+Date and Time: Jun 1, 2016 10:21:50 PM 
+Project Name: webfrontend 
+--> 
+<html>
+    <head>
+        <title>Quiz1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div id="creditcardvalue">Credit Card Number : </br></div>
+        <div id="reverse_data"></br> </br>Reverse Data : </br></div>
+        <div id="checksum_data"></div>
+        <script>
+            //var creditcard = new array(5);
+            var creditcard = [];
+            var i = 0, j = 0;
+            //alert(creditcard.length);
+            for (i = 0; i < 5; i++) {
+                var a = [];
+
+                for (j = 0; j < 10; j++) {
+                    var random = Math.floor((Math.random() * 9) + 1);
+                    a.push(random);
+                }
+
+                document.getElementById('creditcardvalue').innerHTML += a + '</br>';
+                document.getElementById('reverse_data').innerHTML
+                //document.write('</br>checking card number ' + (i + 1) + ' :  </br> Reverse Number : ' + a.reverse() + '</br>');
+                document.getElementById('reverse_data').innerHTML += '</br>checking card number ' + (i + 1) + ' :  </br> Reverse Number : ' + a.reverse() + '</br>';
+
+                for (var k = 0; k <= 9; k++) {
+                    if (k % 2 != 1) {
+                        var checkodddata = a[k] * 2;
+                        if (checkodddata > 9) {
+                            a[k] = a[k] + 1;
+                        } else {
+                            a[k] = checkodddata;
+                        }
+                    }
+                }
+                //alert(a);
+                document.getElementById('reverse_data').innerHTML += 'after double odd position : '+ a + '</br>';
+
+                var total = 0;
+                for (var n = 0; n < a.length; n++) {
+                    total = total + a[n];
+                }
+                document.getElementById('reverse_data').innerHTML += 'Total of credit digit : ' +total + '</br>';
+
+                if (total % 10 == 0) {
+                    document.getElementById('reverse_data').innerHTML += 'It is an valid credit number </br>';
+                } else {
+                    document.getElementById('reverse_data').innerHTML += 'It is an invalid credit number </br>';
+                }
+
+            }
+//            document.getElementById("creditcardvalue").innerHTML = creditcard;
+            //alert(creditcard);
+
+            //document.getElementById('creditcardvalue').innerHTML = '<span class="prego">Something</span>';
+        </script>
+    </body>
+</html>

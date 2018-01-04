@@ -1,0 +1,203 @@
+/* 
+Student Info: Name=Shraddha Gajjar, ID=15992
+Subject: CS557_HW3_Summer_2015
+Author: shraddha
+Filename: hw3.css 
+Date and Time: Jul 4, 2016 5:34:51 PM 
+Project Name: webfrontend 
+*/ 
+
+.header{
+    background-color: black;
+    min-height: 150px;
+    text-align: center;
+    width: 100%;
+}
+
+.header img {
+    padding: 10px;
+    margin: 0px auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.navigation ul {
+    list-style: outside none none;
+    margin: 0px auto;
+    text-align: center;
+    background-color: black;
+}
+body{
+    font-family:Georgia, "Times New Roman", Times, serif;
+}
+.navigation a{
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    padding: 20px;
+}
+
+ a{
+    text-decoration: none;
+    font-size: 15px;
+    color: aliceblue;
+    padding: 10px;
+}
+.navigation {
+    background-color: #d3d3d3;
+}
+
+.navigation ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.main {
+    background-color: #d3d3d3;
+    float: right;
+    min-height: 500px;
+    width: 75%;
+}
+
+.sidebar {
+    background-color: #d3d3d3;
+    min-height: 550px;
+}
+
+.footer {
+    background-color: black;
+    min-height: 100px;
+    width: 100%;
+    text-align: center;
+    
+    bottom: 2px;
+}
+
+.footer label {
+    color: #fff;
+    padding: 10px;
+    display: inline-block; 
+    clear: both;
+}
+
+.add-image{
+    text-align: center;
+}
+
+.add-image img{
+    display: inline;
+    margin-top: 20px;
+}
+
+.content {
+    margin-left: 36px;
+}
+
+.row {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 40px;
+    clear: both;
+}
+
+.colm4 {
+    float: left;
+    margin-left: 10px;
+    width: 33.3%;
+    margin-top: 20px;
+}
+
+.colm3{
+    float: left;
+    margin-left: 10px;
+    width: 25%;
+    margin-top: 20px;
+}
+
+.content label {
+    float: right;
+}
+
+.button {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 15px;
+    color: #fff;
+    float: right;
+    width: 60%;
+    font-size: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.game div {
+    background-color: #fff;
+    display: inline-block;
+    /*float: left;*/
+    /*margin-left: 12px;*/
+    padding: 15px;
+}
+
+.game {
+    display: inline-block;
+    width: 100%;
+}
+
+[data-drop-target] {
+    background-color: lightblue !important;
+    float: left;
+    height: 54px;
+    margin: 5px;
+    width: 5%;
+}
+
+#timer {
+    background-color: #ededed;
+    border: 1px solid #d3d33d;
+    border-radius: 4px;
+    float: right;
+    margin-right: 10px;
+    padding: 20px;
+}
+
+th {
+    background-color: #2E3F59;
+    padding: 10px;
+    width: 5%;
+    color: #fff;
+}
+
+#logdata {
+
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+td{
+    padding: 10px;
+    width: 5%; 
+}
+
+@media (max-width: 767px) {
+    .navigation ul li {
+        width: 100%;
+    }   
+    .navigation ul {
+        text-align: left;
+    } 
+
+    .main {
+        width: 100%;
+        min-height: 300px;
+        float: none;
+    }
+
+    .main h3 {
+        margin: 0;
+        padding-top: 7px;
+    }
+    .sidebar {
+       min-height: 500px;
+    }
+}

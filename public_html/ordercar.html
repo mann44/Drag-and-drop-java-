@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- 
+Student Info: Name=VijayPanwar, ID=16069
+Subject: CS557C_HW1_Summer_2016
+Author: vijay 
+Filename: ordercar.html 
+Date and Time: Jun 8, 2016 12:24:27 PM 
+Project Name: webfrontend 
+--> 
+<html>
+    <body>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/hw2.css">
+
+    </head>
+    <div>
+        <section class="header">
+            <img src="img/car-logo.png">
+
+        </section>
+        <section class="main">
+            <h2>Welcome to online car rental services!</h2>
+            <h3>In few easy steps your car is ready for rent.</h3>
+
+            <div class="row">
+                <div class="colm4">
+                    <h3>Select car type</h3>
+                    <select onchange="change_car()" id="select_car">
+
+                        <option value="29.99">Compact - $29.99</option>
+                        <option value="39.99">Mid Size - $39.99</option>
+                        <option value="49.99">Luxury - $49.99</option>
+                    </select>
+                </div>
+                <div class="colm4">
+                    <img src="img/car/compact.jpg" id="carimage" class="carimage">
+                </div>
+            </div>
+            <div class="row">
+                <div class="colm4">
+                    <h3>Select city</h3>
+                    <select id="city_surcharge">
+                        <option value="15">San Francisco - 15%</option>
+                        <option value="15">Los Angeles - 15%</option>
+                        <option value="10">Fremont - 10%</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row" style="clear: both;">
+                <div class="colm4">
+                    <h3>Optional Services</h3>
+                    <input type="checkbox" value="17.00" id="insurance"><label for="insurance" id="insulabel">Collision insurance is $17.00 / day for compact cars</label>
+
+
+                </div>
+
+            </div>
+            <div class="row" style="clear: both;">
+                <div class="colm4">
+                    <input type="checkbox" value="100.00" id="prepaidcard"><label for="prepaid_card">$100.00 for Prepaid Gift Card for gas Station</label>
+                </div>
+            </div>
+
+            <div class="row" style="clear: both;">
+                <div class="colm4">
+                    <input type="checkbox" value="50.00" id="dailycarwash" style="display: none;"><label for="dailycarwash" id="dailywash" style="display: none;">$50.00 Daily car wash</label>
+                </div>
+            </div>
+
+            <div class="row" style="clear: both;">
+
+                <div class="colm4">
+                    <h3>Select a Start Date</h3>
+                    <input type="date" name="bday" id="startdate" min="2016-06-08">
+                </div>
+                <div class="colm4">
+                    <h3>Select a End Date</h3>
+                    <input type="date" name="bday" id="enddate" max="2020-12-31">
+                </div>
+            </div>
+
+            <div class="row" style="clear:both;">
+                <div class="colm4">
+                    <h3>Enter the number of days you want to rent a car</h3>
+                    <input type="number" id="number" class="number" min="1" value="1">
+                </div>
+            </div>
+            <div class="row" style="clear:both;">
+                
+                <div class="output" id="output" style="display: none;">
+                    <h3>Final summary / Total payable amount</h3>
+                </div>
+            </div>
+            <div class="row" style="clear:both;">
+                <button value="Submit" onclick="get_value()" class="button" type="button">Submit</button>
+            </div>
+            <a href="vijay_16069_cs557C_HW2.html">Home..</a>
+        </section>
+        <section class="footer">
+            <img src="img/car-logo.png">
+            <p>&copy; 2016 All rights to Car Rental</p>
+        </section>
+    </div>
+    <script>
+        function change_car() {
+
+            var amount = document.getElementById("select_car").value;
+            if (amount == "29.99") {
+                document.getElementById("carimage").src = "img/car/compact.jpg";
+                document.getElementById("insurance").value = "17.00";
+                document.getElementById("insulabel").innerHTML = "Collision insurance is $17.00 / day for compact cars";
+                document.getElementById("dailycarwash").style.display = "none";
+                document.getElementById("dailywash").style.display = "none";
+
+            } else if (amount == "39.99") {
+                document.getElementById("carimage").src = "img/car/mid-siz.jpg";
+                document.getElementById("insurance").value = "22.00";
+                document.getElementById("insulabel").innerHTML = "Collision insurance is $22.00 / day for Mid-size cars";
+                document.getElementById("dailycarwash").style.display = "none";
+                document.getElementById("dailywash").style.display = "none";
+
+            } else {
+                document.getElementById("carimage").src = "img/car/luxury-cars.jpg";
+                document.getElementById("insurance").value = "28.00";
+                document.getElementById("dailycarwash").style.display = "block";
+                document.getElementById("dailywash").style.display = "block";
+                document.getElementById("insulabel").innerHTML = "Collision insurance is $28.00 / day for Luxury cars";
+
+            }
+
+
+        }
+
+
+
+        function get_value() {
+            var amount = parseFloat(document.getElementById("select_car").value);
+            var city_surcharge = parseFloat(document.getElementById("city_surcharge").value);
+            var insurance = parseFloat(document.getElementById("insurance").value);
+            var prepaidcard = parseFloat(document.getElementById("prepaidcard").value);
+            var dailycarwash = parseFloat(document.getElementById("dailycarwash").value);
+            var number = parseFloat(document.getElementById("number").value);
+
+           // var total = 0.0;
+
+
+            var optional = 0.0;
+
+            if (document.getElementById('insurance').checked) {
+                optional = parseFloat(optional + insurance);
+            }
+
+            if (document.getElementById('prepaidcard').checked) {
+                optional = parseFloat(optional + prepaidcard);
+            }
+
+            if (document.getElementById('dailycarwash').checked) {
+                optional = parseFloat(optional + dailycarwash);
+            }
+
+            var surchareg = parseFloat((amount * city_surcharge) / 100).toFixed(2);
+            //var sum = parseFloat(+surchareg + +optional);
+            var total = parseFloat(+amount + +surchareg + +optional).toFixed(2);
+            //alert(total);
+            var finaltotal = parseFloat(number * total).toFixed(2);
+            var startdate = document.getElementById("startdate").value;
+            var enddate = document.getElementById("enddate").value;
+            document.getElementById("output").innerHTML += "Amount : $" + amount + '</br>'; 
+            document.getElementById("output").innerHTML += "SurCharge : $" + surchareg + '</br>';
+            document.getElementById("output").innerHTML += "Other Charges : $" + optional + '</br>';
+            document.getElementById("output").innerHTML += "Start Date : " + startdate + '</br>'
+            document.getElementById("output").innerHTML += "End Date : " + enddate + '</br>'
+            document.getElementById("output").innerHTML += "No of Days : " + number + '</br>';
+            document.getElementById("output").innerHTML += "Final Total : $" + finaltotal + '</br>';
+            document.getElementById("output").style.display = "inline-block";
+        }
+
+
+    </script>
+</body>
+
+
+</html>
